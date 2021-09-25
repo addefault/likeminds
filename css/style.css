@@ -276,13 +276,6 @@ footer br {
 	header .auth-links p {
 		margin-bottom: 0;
 	}
-}
-@media (max-width: 768px) and (orientation: landscape) {
-	div.main-navigation {
-		padding: 0 10px;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
 	div.main-navigation > div {
 		width: 209px;
 		height: 209px;
@@ -311,6 +304,15 @@ footer br {
 	div.main-navigation > div:first-child:after {
 		animation-name: xrotate3;
 	}
+	div.main-navigation {
+		padding: 0 10px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+@media (max-width: 768px) and (orientation: landscape) {
+	
+	
 }
 @media (max-width: 545px) {
 	div.main-navigation > div:first-child,
