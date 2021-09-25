@@ -74,7 +74,6 @@ div.main-navigation > div {
 	background-clip: content-box, border-box;
 	position: relative;
 	display: inline-block;
-	margin: 4px 38px;
 }
 div.main-navigation > div:first-child {
 	display: block;
@@ -104,33 +103,91 @@ div.main-navigation > div:after {
 	background-image: linear-gradient(white, white), linear-gradient(to bottom, #A72421, #DB1F24);
 	background-origin: border-box;
 	background-clip: content-box, border-box;
-	top: -22px;
-	left: -22px;
+	top: 104px;
+	left: 104px;
 	box-sizing: border-box;
+	animation-duration: 13s;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	animation-name: rotate;
+}
+div.main-navigation > div:last-child {
+	margin-top: 40px;
+	margin-left: 140px;
 }
 div.main-navigation > div:last-child:after {
-	top: auto;
-	bottom: -22px;
-	left: auto;
-	right: -22px;
+	animation-name: rotate2;
 }
 div.main-navigation > div:first-child:after {
-	top: -22px;
-	right: -22px;
-	bottom: auto;
-	left: auto;
+	animation-name: rotate3;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(-135deg) translateX(175px) rotate(-135deg);
+    }
+    to {
+        transform: rotate(225deg) translateX(175px) rotate(-225deg);
+    }
+}
+@keyframes rotate2 {
+    from {
+        transform: rotate(45deg) translateX(175px) rotate(45deg);
+    }
+    to {
+        transform: rotate(405deg) translateX(175px) rotate(-405deg);
+    }
+}
+@keyframes rotate3 {
+    from {
+        transform: rotate(-45deg) translateX(175px) rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg) translateX(175px) rotate(-315deg);
+    }
+}
+
+@keyframes xrotate {
+    from {
+        transform: rotate(-135deg) translateX(130px) rotate(-135deg);
+    }
+    to {
+        transform: rotate(225deg) translateX(130px) rotate(-225deg);
+    }
+}
+@keyframes xrotate2 {
+    from {
+        transform: rotate(45deg) translateX(130px) rotate(45deg);
+    }
+    to {
+        transform: rotate(405deg) translateX(130px) rotate(-405deg);
+    }
+}
+@keyframes xrotate3 {
+    from {
+        transform: rotate(-45deg) translateX(130px) rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg) translateX(130px) rotate(-315deg);
+    }
 }
 footer {
 	font-family: "Courier Prime";
-	background: linear-gradient(270deg, #DB1F24 21.55%, #A12420 100%);
+	background: linear-gradient(270deg, #A12420 21.55%, #DB1F24 100%);
 	padding: 25px 0;
 	text-align: center;
 	font-size: 1.1rem;
 	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 footer a {
 	display: inline-block;
 	margin: 0 15px;
+}
+footer br {
+	display: none;
 }
 .osm, .oxs, .oxsl, .oxsp {
 	display: none;
@@ -176,7 +233,7 @@ footer a {
 		font-size: 0.9rem;
 	}
 	div.main-navigation {
-		margin: 10px 0;
+		margin: 50px 0;
 	}
 }
 @media (max-width: 768px) {
@@ -215,32 +272,54 @@ footer a {
 		height: 209px;
 	}
 	div.main-navigation > div:first-child,
-	div.main-navigation > div {
+	div.main-navigation > div,
+	div.main-navigation > div:last-child {
 		display: inline-block;
-		margin-left: 5px;
-		margin-right: 5px;
+		margin-left: 25px;
+		margin-right: 25px;
+		margin-top: 30px;
+		margin-bottom: 30px;
 	}
 	div.main-navigation > div:after {
 		width: 35px;
 		height: 35px;
+		top: 79px;
+		left: 79px;
 	}
 	div.main-navigation > div:after {
-		top: auto;
-		left: auto;
-		bottom: -10px;
-		right: -10px;
-	}
-	div.main-navigation > div:first-child:after {
-		top: -10px;
-		left: auto;
-		bottom: auto;
-		right: -10px;
+		animation-name: xrotate;
 	}
 	div.main-navigation > div:last-child:after {
-		top: -10px;
-		left: -10px;
-		bottom: auto;
-		right: auto;
+		animation-name: xrotate2;
+	}
+	div.main-navigation > div:first-child:after {
+		animation-name: xrotate3;
+	}
+}
+@media (max-width: 545px) {
+	div.main-navigation > div:first-child,
+	div.main-navigation > div,
+	div.main-navigation > div:last-child {
+		margin-top: 48px;
+		margin-bottom: 48px;
+	}
+}
+@media (max-width: 545px), (max-width: 768px) and (orientation: landscape) {
+	footer {
+		justify-content: space-between;
+		padding: 12px 0;
+	}
+	footer br {
+		display: block;
+	}
+	footer a:nth-child(2) {
+		order: 1;
+	}
+	footer a:first-child {
+		order: 2;
+	}
+	footer a:last-child {
+		order: 3;
 	}
 }
 @media (max-width: 470px) {
