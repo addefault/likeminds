@@ -59,6 +59,10 @@ header .auth-links a img {
 	vertical-align: middle;
 	margin-right: 9px;
 }
+header a:hover,
+footer a:hover {
+	text-decoration: underline;
+}
 main {
 	padding: 40px 0;
 }
@@ -76,6 +80,7 @@ div.main-navigation > div {
 	background-clip: content-box, border-box;
 	position: relative;
 	display: inline-block;
+	transition: box-shadow .3s ease-in-out;
 }
 div.main-navigation > div:first-child {
 	display: block;
@@ -113,6 +118,15 @@ div.main-navigation > div:after {
 	animation-delay: 0s;
 	animation-iteration-count: infinite;
 	animation-name: rotate;
+	transition: box-shadow .3s ease-in-out;
+}
+div.main-navigation > div:hover {
+	box-shadow: 0px 0px 25px 15px rgba(219, 31, 36, 1);
+	background-image: radial-gradient(white 53%, #986d6d 100%), linear-gradient(to bottom, #A72421, #DB1F24);
+}
+div.main-navigation > div:hover:after {
+	box-shadow: 0px 0px 10px 5px rgba(95, 2, 0, .7);
+	background-image: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(193,157,157,1) 50%), linear-gradient(to bottom, #A72421, #DB1F24)
 }
 div.main-navigation > div:last-child {
 	margin-top: 40px;
