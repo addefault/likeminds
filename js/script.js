@@ -1,6 +1,12 @@
 $(document).ready(function() {
 	$('input[type=submit]').click(function(e) {
 		e.preventDefault();
-		console.log($(this).closest('form').find('input[type="text"], input[type="password"], textarea'));
+		let form = $(this).closest('form');
+		let fields = form.find('input[type="text"], input[type="password"], textarea');
+		fields.each(function() {
+			if($(this).attr('required'))
+				alert('required');
+		});
+		form.submit();
 	});
 });
