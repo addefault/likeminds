@@ -111,6 +111,21 @@ div.main-navigation > div {
 	display: inline-block;
 	transition: box-shadow .3s ease-in-out;
 }
+div.main-navigation > div:before {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 90%;
+	height: 90%;
+	background: linear-gradient(to bottom, #A72421, #DB1F24);
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	filter: blur(8px);
+	transition: .3s ease-in-out;
+}
 div.main-navigation > div:first-child {
 	display: block;
 	margin-left: auto;
@@ -149,14 +164,15 @@ div.main-navigation > div:after {
 	animation-name: rotate;
 	transition: box-shadow .3s ease-in-out;
 }
-div.main-navigation > div:hover {
-	box-shadow: 0px 0px 12px 19px #db1f24, inset 0px 1px 10px 14px #52424261;
+div.main-navigation > div:hover:before {
+	width: 120%;
+	height: 120%;
 }
 div.main-navigation > div:hover:after {
-	box-shadow: 0px 0px 12px 8px #db1f24, inset 0px 1px 10px 14px #52424261;
+	box-shadow: 0px 0px 12px 8px #A72421, inset 0px 1px 10px 8px #52424261;
 }
 div.main-navigation > div:last-child {
-	margin-top: 60px;
+	margin-top: 75px;
 	margin-left: 150px;
 }
 div.main-navigation > div:last-child:after {
@@ -373,10 +389,10 @@ p.timer {
 	div.main-navigation > div,
 	div.main-navigation > div:last-child {
 		display: inline-block;
-		margin-left: 25px;
-		margin-right: 25px;
-		margin-top: 30px;
-		margin-bottom: 30px;
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-top: 50px;
+		margin-bottom: 50px;
 	}
 	div.main-navigation > div:after {
 		width: 35px;
@@ -397,6 +413,9 @@ p.timer {
 		padding: 0 10px;
 		margin-top: 0;
 		margin-bottom: 0;
+	}
+	header .auth-links p:last-child {
+		margin-left: 15px;
 	}
 }
 
