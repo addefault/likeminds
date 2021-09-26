@@ -28,6 +28,17 @@ a {
 	background-color: transparent;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+h3 {
+	font-family: "ar_Aquaguy";
+	font-size: 3.2rem;
+	color: #A92421;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+p {
+	font-family: "Courier New";
+	font-size: 1.2rem;
+}
 header > div {
 	background: linear-gradient(270deg, #DB1F24 21.55%, #A12420 100%);
 	display: flex;
@@ -43,7 +54,10 @@ header .slogan {
 	color: #fff;
 	line-height: 45px;
 }
-header .auth-links {
+header .logo-link {
+	line-height: 0;
+}
+header .auth-links p {
 	font-family: "Courier Prime";
 	font-size: 1.2rem;
 	text-transform: uppercase;
@@ -121,12 +135,10 @@ div.main-navigation > div:after {
 	transition: box-shadow .3s ease-in-out;
 }
 div.main-navigation > div:hover {
-	box-shadow: 0px 0px 25px 15px rgba(219, 31, 36, 1);
-	background-image: radial-gradient(white 53%, #986d6d 100%), linear-gradient(to bottom, #A72421, #DB1F24);
+	box-shadow: 0px 0px 12px 19px #c32223, inset 0px 1px 10px 14px #52424261;
 }
 div.main-navigation > div:hover:after {
-	box-shadow: 0px 0px 10px 5px rgba(95, 2, 0, .7);
-	background-image: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(193,157,157,1) 50%), linear-gradient(to bottom, #A72421, #DB1F24)
+	box-shadow: 0px 0px 12px 8px #c32223, inset 0px 1px 10px 14px #52424261;
 }
 div.main-navigation > div:last-child {
 	margin-top: 40px;
@@ -205,6 +217,67 @@ footer a {
 footer br {
 	display: none;
 }
+main {
+	text-align: center;
+}
+.lgcontent {
+	padding: 0 245px;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+form label {
+	text-align: left;
+	display: block;
+	margin-top: 40px;
+}
+input[type=text] {
+	font-family: "Courier New";
+	width: 100%;
+	height: 72px;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	outline: none;
+	font-size: 1.2rem;
+	padding: 0 20px;
+	margin-top: 10px;
+}
+p.timer {
+	margin-top: 55px;
+}
+.btn {
+	font-family: "ar_Aquaguy";
+	font-size: 1.35rem;
+	color: #fff;
+	text-transform: uppercase;
+	background: linear-gradient(90deg, #B42322 -10.05%, #DB1F24 73.2%);
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	padding: 21px 36px;
+	margin-top: 39px;
+	transition: box-shadow .3s ease-in-out;
+}
+.btn:hover {
+	background: linear-gradient(90deg, #B42322 -10.05%, #F5292E 54.41%);
+	box-shadow: 0px 4px 17px #A92421;
+}
+.btn:focus {
+	background: #DD1A1F;
+	box-shadow: 0px 4px 17px #A92421;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .osm, .oxs, .oxsl, .oxsp {
 	display: none;
 }
@@ -310,10 +383,7 @@ footer br {
 		margin-bottom: 0;
 	}
 }
-@media (max-width: 768px) and (orientation: landscape) {
-	
-	
-}
+
 @media (max-width: 545px) {
 	div.main-navigation > div:first-child,
 	div.main-navigation > div,
@@ -338,12 +408,6 @@ footer br {
 	}
 	footer a:last-child {
 		order: 3;
-	}
-}
-@media (max-width: 470px) {
-	div.main-navigation > div {
-		margin-top: 18px;
-		margin-bottom: 18px;
 	}
 }
 @media (max-width: 400px) {
