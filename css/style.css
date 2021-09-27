@@ -46,6 +46,7 @@ h3 {
 	color: #A92421;
 	margin-bottom: 20px;
 	margin-top: 10px;
+	font-weight: normal;
 }
 p {
 	font-family: "Courier New";
@@ -77,6 +78,16 @@ header .auth-links p {
 	font-family: "Courier Prime";
 	font-size: 1.2rem;
 	text-transform: uppercase;
+	color: #fff;
+}
+header div p.logged {
+	font-size: 0.9rem;
+	text-transform: none;
+	margin-bottom: 10px;
+	padding-right: 50px;
+	text-align: right;
+	display: block;
+	font-family: "Courier Prime";
 	color: #fff;
 }
 header .auth-links p {
@@ -258,7 +269,10 @@ main {
 	max-width: 1400px;
 	margin: 0 auto;
 }
-form.code-confirm, form.data-confirm {
+.content {
+	padding: 0 20px;
+}
+form.code-confirm {
 	display: none;
 }
 form .field-wrapper {
@@ -348,7 +362,7 @@ input[type=password],
 	padding: 0 20px;
 }
 .select2-container--default .select2-selection--multiple {
-	height: auto;
+	height: auto !important;
 	min-height: 72px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -376,6 +390,45 @@ input[type=password],
 	border-color: #000;
 	overflow: hidden;
 }
+.select2-dropdown.type-select,
+select.type + .select2-container--default .select2-selection {
+	background: #DB1F24;
+	font-family: "Courier Prime";
+	color: #fff;
+	font-size: 1.8rem;
+}
+select.type + .select2-container--default .select2-selection--single .select2-selection__rendered {
+	font-family: "Courier Prime";
+	color: #fff;
+	font-size: 1.8rem;
+}
+select.type + .select2-container--default .select2-selection .select2-selection__arrow b,
+select.type + .select2-container--default .select2-selection .select2-selection__arrow {
+	width: 20px;
+	height: 12px;
+}
+select.type + .select2-container--default .select2-selection .select2-selection__arrow b {
+	background-image: url(../images/arrow-white.png);
+}
+select.type + .select2-container--default .select2-selection {
+	padding-left: 8px;
+	padding-right: 50px;
+}
+.select2-dropdown.type-select .select2-results__option {
+	font-size: 1.8rem;
+}
+.type-select .nicescroll-rails {
+	border: 1px solid #fff;
+    border-bottom-right-radius: 8px;
+    border-top: none;
+}
+select.type + .select2-container--default .select2-selection {
+	border-color: #fff;
+}
+.select2-dropdown.type-select {
+	border: none;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 .select2-container--default .select2-results>.select2-results__options {
 	max-height: 300px;
 }
@@ -388,6 +441,11 @@ input[type=password],
 	background: #EFEFEF;
 	color: #000;
 }
+.select2-container--default .type-select .select2-results__option--selected,
+.select2-container--default .type-select .select2-results__option--highlighted.select2-results__option--selectable {
+	background: #DB1F24;
+	color: #fff;
+}
 .select2-container--default .select2-selection .select2-selection__arrow {
 	top: 50%;
 	transform: translateY(-50%);
@@ -398,6 +456,9 @@ input[type=password],
 }
 .nicescroll-rails-vr .nicescroll-cursors {
 	background: linear-gradient(180deg, #A72421 0%, #DB1F24 100%);
+}
+.type-select .nicescroll-rails-vr .nicescroll-cursors {
+	background: #DB1F24;
 }
 .select2-container--default .select2-selection .select2-selection__rendered > span,
 .select2-results__option > span,
@@ -543,6 +604,7 @@ p.timer {
 	margin-top: 55px;
 }
 .btn {
+	display: inline-block;
 	font-family: "ar_Aquaguy";
 	font-size: 1.35rem;
 	color: #fff;
@@ -553,7 +615,12 @@ p.timer {
 	cursor: pointer;
 	padding: 21px 36px;
 	margin-top: 39px;
+	margin-bottom: 10px;
 	transition: box-shadow .3s ease-in-out;
+}
+.btn img {
+	vertical-align: middle;
+	margin-right: 10px;
 }
 .btn.btn-big {
 	padding: 21px 80px;
@@ -571,15 +638,166 @@ p.timer {
 	box-shadow: none;
 	cursor: not-allowed;
 }
-
-
-
-
-
-
-
-
-
+form .links-block {
+	margin-top: 45px;
+	line-height: 1.5;
+}
+form .links-block a:hover {
+	border-bottom: 1px solid #000;
+}
+nav.profile-menu {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+nav.profile-menu a {
+	display: inline-block;
+	height: 72px;
+	line-height: 72px;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	font-size: 1.35rem;
+	font-family: "ar_Aquaguy";
+	text-transform: uppercase;
+	width: calc(50% - 20px);
+	margin: 10px;
+	transition: .2s ease-in-out;
+}
+nav.profile-menu a:hover {
+	background: #EBEBEB;
+	border-color: #EBEBEB;
+}
+nav.profile-menu a:focus {
+	background: #D1D1D1;
+	border-color: #D1D1D1;
+}
+nav.profile-menu a span {
+	color: #db1f24;
+}
+form.edit-form > div:nth-child(2) {
+	border-top: 1px solid #BEBEBE;
+	border-bottom: 1px solid #BEBEBE;
+	margin-bottom: 40px;
+}
+form.edit-form > div:nth-child(2) .field-wrapper {
+	margin-top: 40px;
+}
+form.edit-form > div {
+	padding: 0 70px;
+}
+form.edit-form .field-container {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 0;
+}
+form.edit-form .field-container > a {
+	margin-top: 60px;
+}
+form.edit-form .field-wrapper {
+	width: 70%;
+}
+form.edit-form .field-container .field-wrapper {
+	margin-right: 27px;
+	flex-shrink: 0;
+	margin-top: 0;
+	margin-bottom: 40px;
+}
+form.edit-form .field-container input[type="checkbox"] + label {
+	line-height: 0.9;
+	text-align: left;
+	padding-left: 60px;
+	margin-top: 52px;
+}
+#showsocial + label {
+	margin-left: 70px;
+}
+form.edit-form select[name=language2] + .select2 .select2-selection--multiple .select2-selection__choice {
+	background: #F0F0F0;
+	padding: 8px 10px;
+}
+form.edit-form select[name=language2] + .select2 .select2-selection--multiple .select2-selection__choice__remove {
+	color: #000;
+}
+.select2-container--default .select2-selection--multiple {
+	padding: 0 5px;
+}
+form .additem {
+	display: block;
+	width: 72px;
+	height: 72px;
+	background-image: url(../images/plus.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+	position: absolute;
+	top: 36px;
+	right: -85px;
+	border: 1px solid #000;
+	border-radius: 8px;
+}
+form .social-item span {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	font-size: 2.5rem;
+	cursor: pointer;
+}
+form .social-item img {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+    transform: translateY(-50%);
+}
+form .social-item {
+	position: relative;
+	margin-top: 15px;
+}
+form .social-item input[type=text] {
+	padding-left: 60px;
+}
+div.information {
+	margin-top: 50px;
+	margin-bottom: 60px;
+}
+div.information .row {
+	border-top: 1px solid #BEBEBE;
+	padding: 15px 0;
+	display: flex;
+	padding-left: 15%;
+	padding-right: 5%;
+	text-align: left;
+}
+div.information .row img {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+div.information .row.ileft img {
+	margin-left: 14px;
+	width: 27px;
+	margin-bottom: 10px;
+	margin-right: 0;
+}
+div.information .row.row-high {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+div.information .row > div:first-child {
+	width: 30%;
+	flex-shrink: 0;
+}
+div.information .row > div:last-child {
+	width: 70%;
+}
+div.information .row.social > div:last-child > p {
+	width: 35%;
+	display: inline-block;
+	margin: 15px 0;
+}
+div.information .row.social > div:last-child > p,
+div.information .row.social > div:last-child > span {
+	font-size: 1.2rem;
+}
 
 .osm, .oxs, .oxsl, .oxsp {
 	display: none;
@@ -587,6 +805,15 @@ p.timer {
 @media (max-width: 1280px) {
 	.lgcontent {
 		padding: 0 10%;
+	}
+	form .additem {
+		right: 0;
+	}
+	form select[name=social] + .select2 {
+		width: calc(100% - 85px) !important;
+	}
+	#showsocial + label {
+		margin-left: 0;
 	}
 }
 @media (max-width: 1024px) {
@@ -597,6 +824,24 @@ p.timer {
 @media (max-width: 1024px) {
 	header > div {
 		padding-right: 21px;
+	}
+	select.type + .select2-container--default .select2-selection {
+		height: 42px;
+	}
+	.select2-dropdown.type-select, select.type + .select2-container--default .select2-selection--single .select2-selection__rendered, select.type + .select2-container--default .select2-selection {
+	    font-size: 1.2rem;
+		line-height: 42px;
+	}
+	select.type + .select2-container--default img,
+	.select2-dropdown.type-select .select2-results__option > img {
+		width: 26px;
+	}
+	.select2-dropdown.type-select .select2-results__option {
+		font-size: 1.2rem;
+		padding: 0 5px;
+	}
+	select.type + .select2-container--default {
+		width: 330px !important;
 	}
 }
 @media (max-width: 900px) {
@@ -638,12 +883,26 @@ p.timer {
 		margin: 50px 0;
 	}
 }
+@media (max-width: 990px) {
+	div.information .row {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+@media (max-width: 880px) {
+	nav.profile-menu a {
+		font-size: 1.1rem;
+	}
+}
 @media (max-width: 768px) {
 	.oxs {
 		display: flex;
 	}
 	html, body {
 		font-size: 17px;
+	}
+	p {
+		font-size: 1rem;
 	}
 	main {
 		padding: 30px 0;
@@ -698,10 +957,81 @@ p.timer {
 	header .auth-links p:last-child {
 		margin-left: 15px;
 	}
-}
-@media (max-width: 680px) {
+	h3 {
+		font-size: 2.117rem;
+	}
+	input[type=text], input[type=password], .select2-container--default .select2-selection {
+		height: 45px;
+	}
+	form .additem {
+		width: 45px;
+		height: 45px;
+	}
+	.btn, input[type=text], input[type=password], .select2-container--default .select2-selection, label p {
+		font-size: 1.058rem;
+	}
 	form span.error-message {
 		padding: 10px 20px;
+		font-size: .9rem;
+	}
+	input[type="radio"]:checked + label, input[type="radio"]:not(:checked) + label {
+		margin: 5px 3px;
+		font-size: 1.058rem;
+	}
+	.date-trigger {
+		width: 60px;
+		height: 43px;
+		background-size: 30px auto;
+	}
+	.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+		top: 8px;
+		left: auto;
+		right: -4px;
+	}
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		line-height: 43px;
+	}
+	.select2-container--default .select2-selection--multiple {
+		min-height: 45px;
+	}
+	form select[name=social] + .select2 {
+		width: calc(100% - 55px) !important;
+	}
+	form .additem {
+		top: 30px;
+	}
+	form.edit-form .field-container > a {
+		margin-top: 42px;
+	}
+	form.edit-form .field-container input[type="checkbox"] + label {
+		margin-top: 32px;
+	}
+	div.information .row > div:last-child > p, div.information .row.social > div:last-child > span {
+		font-size: .9rem !important;
+	}
+	div.information {
+		margin-bottom: 10px;
+	}
+	div.information .row {
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+	}
+	select.type + .select2-container--default {
+		width: 290px !important;
+	}
+	select.type + .select2-container--default .select2-selection .select2-selection__arrow {
+		right: 20px;
+	}
+}
+@media (max-width: 640px) {
+	nav.profile-menu a {
+		width: 100%;
+	}
+	form.edit-form > div {
+		padding: 0 20px;
+	}
+	form.edit-form .field-wrapper {
+		width: 50%;
 	}
 }
 @media (max-width: 545px) {
@@ -711,8 +1041,43 @@ p.timer {
 		margin-top: 48px;
 		margin-bottom: 48px;
 	}
-	form span.error-message {
-		font-size: 1rem;
+	form.edit-form .field-container {
+		flex-direction: column;
+	}
+	form.edit-form .field-wrapper {
+		width: 100%;
+	}
+	form.edit-form .field-container .field-wrapper {
+		margin-bottom: 0;
+	}
+	form.edit-form .field-container {
+		margin-bottom: 40px;
+	}
+	form.edit-form .field-container input[type="checkbox"] + label {
+		padding-left: 40px;
+	}
+	form.edit-form .field-container > a {
+	    margin-top: 7px;
+	    font-size: .9rem;
+	}
+	input[type="checkbox"] + label:before {
+		width: 30px;
+		height: 30px;
+	}
+	input[type="checkbox"]:checked + label:after {
+		top: 10px;
+		width: 18px;
+		height: 12px;
+	}
+	div.information .row {
+		flex-direction: column;
+	}
+	div.information .row > div:first-child,
+	div.information .row > div:last-child {
+		width: 100%;
+	}
+	div.information .row.social > div:last-child > p {
+		margin: 5px 0;
 	}
 }
 @media (max-width: 545px), (max-width: 768px) and (orientation: landscape) {
@@ -733,6 +1098,22 @@ p.timer {
 		order: 3;
 	}
 }
+@media (max-width: 420px) {
+	select.type + .select2-container--default .select2-selection {
+		padding-left: 5px;
+		padding-right: 20px;
+	}
+	select.type + .select2-container--default .select2-selection .select2-selection__arrow b, select.type + .select2-container--default .select2-selection .select2-selection__arrow {
+		width: 16px;
+		height: 9px;
+	}
+	select.type + .select2-container--default .select2-selection .select2-selection__arrow {
+		right: 10px;
+	}
+	select.type + .select2-container--default {
+		width: 270px !important;
+	}
+}
 @media (max-width: 400px) {
 	header .slogan {
 		font-size: 0.5rem;
@@ -747,6 +1128,11 @@ p.timer {
 	}
 	footer {
 		font-size: .9rem;
+	}
+	input[type="checkbox"] + label {
+		padding-left: 60px;
+		font-size: 1rem;
+		line-height: 1.4;
 	}
 }
 @media (max-width: 320px) {

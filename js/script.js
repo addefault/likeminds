@@ -24,7 +24,7 @@ $(document).ready(function() {
 		
 		return $option;
 	};
-	$('select').select2({
+	$('select:not(.type)').select2({
 		width: '100%',
 		minimumResultsForSearch: -1,
 		templateResult: formatOption,
@@ -37,6 +37,30 @@ $(document).ready(function() {
 			cursorborder:'none',
 			cursorborderradius:0,
 			autohidemode:false
+		});
+	});
+	$('select.type').select2({
+		width: '475px',
+		minimumResultsForSearch: -1,
+		templateResult: formatOption,
+		templateSelection: formatOption,
+		dropdownCssClass: "type-select",
+		containerCssClass: "type-container"
+	}).on("select2:open", function () {
+		$('.select2-results__options').niceScroll({
+			cursorwidth:13,
+			cursorcolor:'rgba(255, 255, 255, 0.37)',
+			background:"#DB1F24",
+			cursorborder:'none',
+			cursorborderradius:0,
+			autohidemode:false
+		});
+	});;
+	$('.additem').click(function() {
+		let option = '<div class="social-item"><img src="'+$(this).prev('.select2').find('.select2-selection__rendered').find('img').attr('src')+'"><input type="text" placeholder="Введите ссылку на социальную сеть"><span aria-hidden="true">×</span></div>';
+		$(option).insertAfter($(this));
+		$('.social-item span').click(function() {
+			$(this).closest('.social-item').remove();
 		});
 	});
 	$('input, select').focus(function() {
