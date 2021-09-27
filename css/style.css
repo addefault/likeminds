@@ -272,7 +272,7 @@ main {
 .content {
 	padding: 0 20px;
 }
-form.code-confirm {
+form.code-confirm, form.data-confirm {
 	display: none;
 }
 form .field-wrapper {
