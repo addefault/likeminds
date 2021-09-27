@@ -55,7 +55,15 @@ $(document).ready(function() {
 			cursorborderradius:0,
 			autohidemode:false
 		});
-	});;
+	});
+	$('.contacts').niceScroll({
+		cursorwidth:15,
+		cursorcolor:'#A72421',
+		background:"#C7C7C7",
+		cursorborder:'none',
+		cursorborderradius:0,
+		autohidemode:false
+	});
 	$('.additem').click(function() {
 		let option = '<div class="social-item"><img src="'+$(this).prev('.select2').find('.select2-selection__rendered').find('img').attr('src')+'"><input type="text" placeholder="Введите ссылку на социальную сеть"><span aria-hidden="true">×</span></div>';
 		$(option).insertAfter($(this));

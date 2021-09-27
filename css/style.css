@@ -767,6 +767,7 @@ div.information .row {
 	padding-left: 15%;
 	padding-right: 5%;
 	text-align: left;
+	position: relative;
 }
 div.information .row img {
 	vertical-align: middle;
@@ -789,6 +790,10 @@ div.information .row > div:first-child {
 div.information .row > div:last-child {
 	width: 70%;
 }
+div.information .row.profile > div:last-child > p {
+	display: inline-block;
+	vertical-align: middle;
+}
 div.information .row.social > div:last-child > p {
 	width: 35%;
 	display: inline-block;
@@ -797,6 +802,140 @@ div.information .row.social > div:last-child > p {
 div.information .row.social > div:last-child > p,
 div.information .row.social > div:last-child > span {
 	font-size: 1.2rem;
+}
+div.contacts {
+	width: 70%;
+	max-width: 790px;
+	height: 560px;
+	overflow-y: auto;
+	background: #FFFFFF;
+	margin: 0 auto;
+	padding-right: 20px;
+	border-bottom: 1px solid #BEBEBE;
+}
+div.contacts > div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 56px;
+	padding-left: 18px;
+	padding-right: 6px;
+	border-left: 1px solid #BEBEBE;
+}
+div.contacts > div:first-child {
+	border-top: 1px solid #BEBEBE;
+}
+div.contacts > div:hover {
+	border: 1px solid transparent;
+	border-image: linear-gradient(#A72421, #DB1F24);
+	-moz-border-image: -moz-linear-gradient(#A72421, #DB1F24);
+	-webkit-border-image: -webkit-linear-gradient(#A72421, #DB1F24);
+	border-image-slice: 1;
+}
+div.contacts > div p {
+	font-size: 1rem;
+}
+div.contacts > div > p > span {
+	font-weight: 700;
+	display: inline-block;
+	margin-right: 18px;
+}
+div.contacts .buttons > a {
+	vertical-align: middle;
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	margin: 0 3px;
+	background-image: url(../images/envelope.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	transition: .2s ease-in-out;
+	color: #fff;
+	text-transform: uppercase;
+}
+div.contacts .buttons > a:last-child {
+	background-image: url(../images/delete.png);
+}
+div.contacts .buttons > a span {
+	display: flex;
+	align-items: center;
+	width: 0;
+	overflow: hidden;
+	transition: .2s ease-in-out;
+}
+div.contacts .buttons > a:hover span {
+	width: auto;
+}
+div.contacts .buttons > a span img {
+	margin-left: 10px;
+}
+div.contacts .buttons > a:hover  {
+	width: auto;
+	
+	background: linear-gradient(180deg, #A72421 0%, #DB1F24 100%);
+	font-family: "ar_Aquaguy";
+	font-size: .9rem;
+	border: none;
+	position: relative;
+	padding: 9px 13px;
+}
+div.message-icon {
+	width: 72px;
+	height: 72px;
+	background-color: #fff;
+	background-image: url(../images/envelope-big.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 300px;
+	cursor: pointer;
+}
+form.filter {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 40px;
+}
+form.filter div:first-child {
+	width: 100%;
+}
+form.filter .filter-trigger {
+    display: inline-block;
+    width: 25%;
+    max-width: 370px;
+    border: 1px solid #000;
+    margin-top: 37px;
+    border-radius: 8px;
+    text-align: left;
+    
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+form.filter .filter-trigger > a {
+    display: inline-block;
+    height: 71px;
+    line-height: 71px;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+}
+form.filter .filter-trigger > a:after {
+	background-image: url(../images/arrow.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 17px;
+    background-position: center;
+    display: block;
+    position: static;
+    margin: 0;
+}
+
+form.filter .field-wrapper:first-child {
+	margin-top: 0;
 }
 
 .osm, .oxs, .oxsl, .oxsp {
@@ -887,6 +1026,9 @@ div.information .row.social > div:last-child > span {
 	div.information .row {
 		padding-left: 20px;
 		padding-right: 20px;
+	}
+	div.message-icon {
+		margin-left: 100px;
 	}
 }
 @media (max-width: 880px) {
