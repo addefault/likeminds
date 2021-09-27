@@ -28,6 +28,7 @@ body {
     flex-direction: column;
     padding: 0;
     margin: 0;
+    font-family: "Courier New";
 }
 
 main {
@@ -257,12 +258,86 @@ main {
 	max-width: 1400px;
 	margin: 0 auto;
 }
-form label {
+form.code-confirm, form.data-confirm {
+	display: none;
+}
+form .field-wrapper {
 	text-align: left;
 	display: block;
 	margin-top: 40px;
+	position: relative;
 }
-input[type=text] {
+form .field-wrapper > p {
+	margin-bottom: 10px;
+}
+form span.rq {
+	color: #db1f24;
+}
+form span.error-message {
+	display: none;
+	position: absolute;
+	bottom: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 14px 68px;
+	background: #FFFFFF;
+	box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.25);
+	border-radius: 6px;
+	font-size: 1.2rem;
+	z-index: 1;
+	color: #DB1F24;
+	text-align: center;
+}
+form span.error-message:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: #fff;
+	left: 50%;
+	transform: translateX(-50%);
+	box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.25);
+	bottom: -7px;
+	transform: rotate(45deg);
+	transform-origin: top;
+}
+form span.error-message:before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 70px;
+	height: 14px;
+	background: #fff;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	z-index: 1;
+}
+form .radio-group {
+	margin-top: 20px;
+}
+form .radio-group label:first-of-type {
+	margin-right: 25px;
+}
+.date {
+	cursor: default;
+}
+.date-trigger {
+	position: absolute;
+	bottom: 1px;
+	right: 1px;
+	width: 80px;
+	height: 70px;
+	border-left: 1px solid #000;
+	background-image: url(../images/date.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+}
+input[type=text],
+input[type=password],
+.select2-container--default .select2-selection {
 	font-family: "Courier New";
 	width: 100%;
 	height: 72px;
@@ -271,7 +346,198 @@ input[type=text] {
 	outline: none;
 	font-size: 1.2rem;
 	padding: 0 20px;
-	margin-top: 10px;
+}
+.select2-container--default .select2-selection--multiple {
+	height: auto;
+	min-height: 72px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: #000;
+	line-height: 70px;
+	padding: 0;
+}
+.select2-container--default .select2-selection .select2-selection__arrow b,
+.select2-container--default .select2-selection .select2-selection__arrow {
+	width: 27px;
+	height: 17px;
+}
+.select2-container--default .select2-selection .select2-selection__arrow b {
+	border: none;
+	background-image: url(../images/arrow.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
+	display: block;
+	position: static;
+	margin: 0;
+}
+.select2-dropdown {
+	border-radius: 8px;
+	border-color: #000;
+	overflow: hidden;
+}
+.select2-container--default .select2-results>.select2-results__options {
+	max-height: 300px;
+}
+.select2-results__option {
+	padding: 7px 25px;
+	font-size: 1.2rem;
+}
+.select2-container--default .select2-results__option--selected,
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+	background: #EFEFEF;
+	color: #000;
+}
+.select2-container--default .select2-selection .select2-selection__arrow {
+	top: 50%;
+	transform: translateY(-50%);
+	right: 25px;
+}
+.select2-container--default.select2-container--open .select2-selection .select2-selection__arrow b {
+	transform: rotate(180deg);
+}
+.nicescroll-rails-vr .nicescroll-cursors {
+	background: linear-gradient(180deg, #A72421 0%, #DB1F24 100%);
+}
+.select2-container--default .select2-selection .select2-selection__rendered > span,
+.select2-results__option > span,
+.select2-selection__choice__display > span,
+.select2-container--default .select2-selection .select2-selection__rendered > img,
+.select2-results__option > img,
+.select2-selection__choice__display > img {
+	vertical-align: middle;
+}
+.select2-container--default .select2-selection .select2-selection__rendered > *:last-child,
+.select2-results__option > *:last-child,
+.select2-selection__choice__display > *:last-child {
+	margin-left: 8px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	background: #fff;
+	border: none;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.select2-search {
+    display: none;
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+	display: block;
+	width: 100%;
+}
+.select2-container--default .select2-selection--multiple {
+	display: flex;
+	align-items: center;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	position: static;
+	border-right: none;
+	font-weight: normal;
+	color: #DB1F24;
+	vertical-align: middle;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+	color: #DB1F24;
+}
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    line-height: 25px;
+    font-size: 1.2rem;
+    display: inline-block;
+    color: #000;
+}
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 21px;
+    height: 21px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    background: #fff;
+}
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #000;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+input[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 72px;
+  line-height: 41px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label a {
+	color: #db1f24;
+	border-bottom: 1px solid #db1f24;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+	content: '';
+	display: block;
+	width: 41px;
+	height: 41px;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	border-radius: 8px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+input[type="checkbox"]:checked + label:after {
+	content: '';
+	display: block;
+	width: 30px;
+	height: 22px;
+	position: absolute;
+	left: 6px;
+	top: 12px;
+	background-image: url(../images/check.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
 }
 p.timer {
 	margin-top: 55px;
@@ -289,6 +555,9 @@ p.timer {
 	margin-top: 39px;
 	transition: box-shadow .3s ease-in-out;
 }
+.btn.btn-big {
+	padding: 21px 80px;
+}
 .btn:hover {
 	background: linear-gradient(90deg, #B42322 -10.05%, #F5292E 54.41%);
 	box-shadow: 0px 4px 17px #A92421;
@@ -297,9 +566,11 @@ p.timer {
 	background: #DD1A1F;
 	box-shadow: 0px 4px 17px #A92421;
 }
-
-
-
+.btn[disabled] {
+	background: #D2D2D2;
+	box-shadow: none;
+	cursor: not-allowed;
+}
 
 
 
@@ -313,6 +584,11 @@ p.timer {
 .osm, .oxs, .oxsl, .oxsp {
 	display: none;
 }
+@media (max-width: 1280px) {
+	.lgcontent {
+		padding: 0 10%;
+	}
+}
 @media (max-width: 1024px) {
 	.omd {
 		display: none;
@@ -321,6 +597,11 @@ p.timer {
 @media (max-width: 1024px) {
 	header > div {
 		padding-right: 21px;
+	}
+}
+@media (max-width: 900px) {
+	.lgcontent {
+		padding: 0 20px;
 	}
 }
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -418,13 +699,20 @@ p.timer {
 		margin-left: 15px;
 	}
 }
-
+@media (max-width: 680px) {
+	form span.error-message {
+		padding: 10px 20px;
+	}
+}
 @media (max-width: 545px) {
 	div.main-navigation > div:first-child,
 	div.main-navigation > div,
 	div.main-navigation > div:last-child {
 		margin-top: 48px;
 		margin-bottom: 48px;
+	}
+	form span.error-message {
+		font-size: 1rem;
 	}
 }
 @media (max-width: 545px), (max-width: 768px) and (orientation: landscape) {
@@ -456,6 +744,9 @@ p.timer {
 	}
 	header .auth-links {
 		font-size: .95rem;
+	}
+	footer {
+		font-size: .9rem;
 	}
 }
 @media (max-width: 320px) {
