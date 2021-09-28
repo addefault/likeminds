@@ -25,11 +25,6 @@ $(document).ready(function() {
 		return $option;
 	};
 
-
-	
-
-	
-
 	$('select:not(.type)').select2({
 		width: '100%',
 		minimumResultsForSearch: -1,
@@ -143,7 +138,7 @@ $(document).ready(function() {
 			$(this).closest('.social-item').remove();
 		});
 	});
-	$('input, select').focus(function() {
+	$('input, select, textarea').focus(function() {
 		if($(this).closest('label').find('.error-message').length > 0)
 			$(this).closest('label').find('.error-message').fadeOut().remove();
 	});
@@ -156,8 +151,8 @@ $(document).ready(function() {
 		let submit = $(this);
 		let form = submit.closest('form');
 		let fields = form.find('input[type="text"], input[type="password"], textarea, select, input[type="checkbox"]');
+		let errorText;
 		fields.each(function() {
-			let errorText;
 			if($(this).attr('required') && $(this).val().length === 0) {
 				errorText = 'Поле обязательно для заполнения!';
 			} else if($(this).attr('required') && $(this).attr('type') === 'checkbox' && !$(this).is(':checked')) {
@@ -181,6 +176,7 @@ $(document).ready(function() {
 				$(this).closest('label').append('<span class="error-message">'+errorText+'</span>');
 				$(this).closest('label').find('.error-message').fadeIn();
 			}
+		});
 			if(!errorText && form.hasClass('email-confirm')) {
 				$('form.code-confirm').fadeIn();
 				submit.prop('disabled', true);
@@ -207,9 +203,13 @@ $(document).ready(function() {
 			} else if(!errorText && form.hasClass('code-confirm')) {
 				$('.email-confirm, .code-confirm').fadeOut();
 				$('.data-confirm').fadeIn();
+			} else if(!errorText && form.hasClass('contact-confirm')) {
+				$('.popup.contact-popup').css("display", "flex").hide().fadeIn();
 			}
-		});
 		//form.submit();
+	});
+	$('.popup-close').click(function() {
+		$(this).closest('.popup').fadeOut();
 	});
 	$('.filter-link').click(function(e) {
 		e.preventDefault();
