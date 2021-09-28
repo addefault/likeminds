@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$('.date-trigger').click(function() {
 		$(this).siblings('.date').datepicker('show');
 	});
-
+	
 	function formatOption(option) {
 		if (!option.id) {
 			return option.text;
@@ -64,6 +64,7 @@ $(document).ready(function() {
 		cursorborderradius:0,
 		autohidemode:false
 	});
+	
 	$('.additem').click(function() {
 		let option = '<div class="social-item"><img src="'+$(this).prev('.select2').find('.select2-selection__rendered').find('img').attr('src')+'"><input type="text" placeholder="Введите ссылку на социальную сеть"><span aria-hidden="true">×</span></div>';
 		$(option).insertAfter($(this));
@@ -138,5 +139,9 @@ $(document).ready(function() {
 			}
 		});
 		//form.submit();
+	});
+	$('.filter-link').click(function(e) {
+		e.preventDefault();
+		$(this).closest('.filter-trigger').toggleClass('opened');
 	});
 });
