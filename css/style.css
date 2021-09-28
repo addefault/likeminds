@@ -1120,7 +1120,39 @@ div.pagination {
 	justify-content: center;
 	align-items: center;
 }
-
+.interest-wrapper {
+	width: 60%;
+	text-align: left;
+	max-width: 790px;
+	display: block;
+	margin: 0 auto;
+}
+.interest-wrapper p {
+	margin-bottom: 10px;
+}
+.canvas-wrapper {
+	display: inline-block;
+	margin: 20px;
+}
+.canvas-wrapper p {
+	margin-top: 30px;
+}
+.charts {
+	margin-top: 50px;
+}
+p.about {
+	text-align: center;
+	font-size: .8rem;
+	margin-top: 80px;
+	margin-bottom: 10px;
+}
+p.about a {
+	border-bottom: 1px solid #000;
+}
+p.about a:hover {
+	color: #db1f24;
+	border-color: #db1f24;
+}
 
 .osm, .oxs, .oxsl, .oxsp {
 	display: none;

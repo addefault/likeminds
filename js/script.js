@@ -24,6 +24,72 @@ $(document).ready(function() {
 		
 		return $option;
 	};
+
+	function newChart(id, data, colors, labels) {
+		var canvas = document.getElementById(id);
+		var ctx = canvas.getContext("2d");
+		var lastend = 0;
+		var myTotal = 0;
+
+		for(var e = 0; e < data.length; e++)
+		{
+		  myTotal += data[e];
+		}
+
+		var off = 0
+		var w = (canvas.width) / 2
+		var h = (canvas.height) / 2
+		for (var i = 0; i < data.length; i++) {
+		  ctx.fillStyle = colors[i];
+		  ctx.beginPath();
+		  ctx.moveTo(w,h);
+		  var len =  (data[i]/myTotal) * 2 * Math.PI
+		  var r = h - off / 2
+		  ctx.arc(w, h, r, lastend,lastend + len,false);
+		  ctx.lineTo(w,h);
+		  ctx.fill();
+		  
+		  var mid = lastend + len / 2;
+		  var text = labels[i];
+		  text = text.split('\n');
+		  for (var j = 0; j<text.length; j++) {
+		  	ctx.fillStyle ='white';
+		    ctx.font = "13px ar_Aquaguy";
+		    ctx.textAlign = "center";
+		    ctx.textBaseline = "middle";
+		    ctx.fillText(text[j],w + Math.cos(mid) * (r/2), (h + Math.sin(mid) * (r/2))+j*15);
+		  }
+		  lastend += Math.PI*2*(data[i]/myTotal);
+		}
+	}
+
+	newChart(
+		"chart1",
+		[20,40,40],
+		['#656C77', '#000000','#DB1F24'],
+		['20%', '40%', '40%']
+	);
+	newChart(
+		"chart2",
+		[60,40],
+		['#656C77', '#DB1F24'],
+		['60%\n(М)', '40%\n(Ж)']
+	);
+	newChart(
+		"chart3",
+		[20,40,40],
+		['#656C77', '#000000','#DB1F24'],
+		['20%', '40%', '40%']
+	);
+	newChart(
+		"chart4",
+		[20,40,40],
+		['#656C77', '#000000','#DB1F24'],
+		['20%', '40%', '40%']
+	);
+
+	
+
 	$('select:not(.type)').select2({
 		width: '100%',
 		minimumResultsForSearch: -1,
