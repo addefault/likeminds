@@ -180,6 +180,7 @@ div.main-navigation > div {
 	-moz-transition: box-shadow .3s ease-in-out, -moz-box-shadow .3s ease-in-out;
 	transition: box-shadow .3s ease-in-out;
 	transition: box-shadow .3s ease-in-out, -webkit-box-shadow .3s ease-in-out, -moz-box-shadow .3s ease-in-out;
+	overflow: auto;
 }
 div.main-navigation > div:before {
 	position: absolute;
@@ -203,8 +204,8 @@ div.main-navigation > div:before {
 	-webkit-border-radius: 50%;
 	   -moz-border-radius: 50%;
 	        border-radius: 50%;
-	/*-webkit-filter: blur(8px);
-	        filter: blur(8px);*/
+	-webkit-filter: blur(8px);
+	        filter: blur(8px);
 	-webkit-transition: .3s ease-in-out;
 	-o-transition: .3s ease-in-out;
 	-moz-transition: .3s ease-in-out;
