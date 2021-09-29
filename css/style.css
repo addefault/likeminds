@@ -187,11 +187,7 @@ div.main-navigation > div:before {
 	display: block;
 	width: 90%;
 	height: 90%;
-	background: -webkit-gradient(linear, left top, left bottom, from(#A72421), to(#DB1F24));
-	background: -webkit-linear-gradient(top, #A72421, #DB1F24);
-	background: -moz-linear-gradient(top, #A72421, #DB1F24);
-	background: -o-linear-gradient(top, #A72421, #DB1F24);
-	background: linear-gradient(to bottom, #A72421, #DB1F24);
+	background: #A72421;
 	z-index: -1;
 	top: 50%;
 	left: 50%;
