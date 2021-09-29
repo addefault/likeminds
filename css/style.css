@@ -2328,6 +2328,12 @@ span.popup-close {
 		width: 270px !important;
 	}
 }
+@media (max-width: 450px) {
+	div.main-navigation > div:first-child, div.main-navigation > div, div.main-navigation > div:last-child {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
 @media (max-width: 490px) {
 	div.results {
 		border-bottom: none;
